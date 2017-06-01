@@ -14,27 +14,34 @@ echo "<br><br><b>Question 8.2<b><br>";
 $numbers = array(1, 2, 3, 6, 12, 15, 18, 20, 21);
 
 function even($array) {
+    $even = array();
     foreach ($array as $value) {
         if (($value % 2) == 0) {
-            print($value . '<br>');
+            $even[] = $value;
         }
     }
+    return $even;
 }
-even($numbers);
+
+$evenNumbers = even($numbers);
+var_dump($evenNumbers);
 
 //Question 8.3
 echo "<br><br><b>Question 8.3<b><br>";
 $dates = array('15/03/1989', '12/02/1996', '19/02/1549');
 
 function date_translate($ukDate) {
+    $translatedDates = array();
     foreach ($ukDate as $value) {
         list($day, $month, $year) = explode('/', $value);
         $usDate = $month . '/' . $day . '/' . $year;
-        echo $usDate . '<br>';
+        $translatedDates[] = $usDate;
         //preg_replace($pattern, $replacement, $usDate);  
         //echo $usDate;
     }
+    return $translatedDates;
 }
 
-date_translate($dates);
+$translatedDates = date_translate($dates);
+var_dump($translatedDates);
 ?>
